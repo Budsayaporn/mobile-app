@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -7,6 +8,8 @@ void main() {
 }
 
 class FoodAndSnackApp extends StatelessWidget {
+  const FoodAndSnackApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,10 +100,12 @@ class FoodAndSnackApp extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // ฟังก์ชันสำหรับลิงค์ไปยังหน้าอื่น
-          print("ไปหน้าต่อไป");
+          if (kDebugMode) {
+            print("ไปหน้าต่อไป");
+          }
         },
-        child: Icon(Icons.arrow_forward),
         backgroundColor: Colors.green[400],
+        child: Icon(Icons.arrow_forward),
       ),
     );
   }
@@ -187,7 +192,7 @@ class FoodAndSnackApp extends StatelessWidget {
 class FoodDetailPage extends StatelessWidget {
   final String foodName;
 
-  FoodDetailPage({required this.foodName});
+  const FoodDetailPage({super.key, required this.foodName});
 
   @override
   Widget build(BuildContext context) {
@@ -205,7 +210,7 @@ class FoodDetailPage extends StatelessWidget {
 class SnackDetailPage extends StatelessWidget {
   final String snackName;
 
-  SnackDetailPage({required this.snackName});
+  const SnackDetailPage({super.key, required this.snackName});
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Page1 extends StatelessWidget {
+  const Page1({super.key});
+
   @override
   Widget build(BuildContext context) {
     // ข้อมูลเมนูอาหาร
@@ -37,6 +39,7 @@ class Page1 extends StatelessWidget {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.deepOrange),
               ),
               SizedBox(height: 10),
+              // ignore: unnecessary_to_list_in_spreads
               ...foodList.map((food) => _buildMenuItem(context, food)).toList(),
               SizedBox(height: 30),
 
@@ -46,6 +49,7 @@ class Page1 extends StatelessWidget {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.green),
               ),
               SizedBox(height: 10),
+              // ignore: unnecessary_to_list_in_spreads
               ...snackList.map((snack) => _buildMenuItem(context, snack)).toList(),
             ],
           ),

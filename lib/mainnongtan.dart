@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,6 +9,8 @@ void main() {
 }
 
 class FoodAndSnackApp extends StatelessWidget {
+  const FoodAndSnackApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +37,7 @@ class FoodAndSnackApp extends StatelessWidget {
                     'https://scontent-bkk1-1.xx.fbcdn.net/v/t39.30808-6/455356371_3768267923412999_2797470450728805737_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=aa7094&_nc_eui2=AeG9WB9KSorpwZ9-dZEC6F4E2VW17gWkYkDZVbXuBaRiQKzk9F6SSmFNoMl744K64JHogUkBvmCEkWmcsIbzekUE&_nc_ohc=N0Q9NVtrKT0Q7kNvgGMMjmJ&_nc_zt=23&_nc_ht=scontent-bkk1-1.xx&_nc_gid=A4j7f6xnM4Oc2HgmpnjPPvP&oh=00_AYDzswLc38EeNvpvfYVdDfLJpq5_dFhviNorodB50r2Sjw&oe=673893F4', 'ข้าวผัด',
                     context,
                     true,
-                    'ข้าวผัด เป็นอาหารจานเดียวแบบพื้นฐานของเอเชีย เป็นการนำข้าวสวยลงไปผัดคลุกกับซอส หรือน้ำพริก หรือเครื่องปรุงรสต่างๆ เพื่อให้ได้รสชาติ \ส่วนประกอบ ข้าวสวยหุงสุก 1 ถ้วย / ไข่ไก่ 2 ฟอง /ต้นหอม 1 ช้อนโต๊ะ /เกลือ ½ ช้อนชา /พริกไทย 1 ช้อนชา /น้ำมันพืช 3 ช้อนโต๊ะ  ',
+                    'ข้าวผัด เป็นอาหารจานเดียวแบบพื้นฐานของเอเชีย เป็นการนำข้าวสวยลงไปผัดคลุกกับซอส หรือน้ำพริก หรือเครื่องปรุงรสต่างๆ เพื่อให้ได้รสชาติ ส่วนประกอบ ข้าวสวยหุงสุก 1 ถ้วย / ไข่ไก่ 2 ฟอง /ต้นหอม 1 ช้อนโต๊ะ /เกลือ ½ ช้อนชา /พริกไทย 1 ช้อนชา /น้ำมันพืช 3 ช้อนโต๊ะ  ',
                     
                   ),
                   _item(
@@ -109,10 +112,12 @@ class FoodAndSnackApp extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print("ไปหน้าต่อไป");
+          if (kDebugMode) {
+            print("ไปหน้าต่อไป");
+          }
         },
-        child: Icon(Icons.arrow_forward),
         backgroundColor: Colors.green[400],
+        child: Icon(Icons.arrow_forward),
       ),
     );
   }
@@ -164,9 +169,10 @@ class FoodDetailPage extends StatefulWidget {
   final String imageUrl;
   final String description;
 
-  FoodDetailPage({required this.foodName, required this.imageUrl, required this.description});
+  const FoodDetailPage({super.key, required this.foodName, required this.imageUrl, required this.description});
 
   @override
+  // ignore: library_private_types_in_public_api
   _FoodDetailPageState createState() => _FoodDetailPageState();
 }
 
@@ -190,7 +196,7 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${widget.foodName}'),
+        title: Text(widget.foodName),
         backgroundColor: Colors.blue[300],
       ),
       body: Padding(
@@ -242,9 +248,10 @@ class SnackDetailPage extends StatefulWidget {
   final String imageUrl;
   final String description;
 
-  SnackDetailPage({required this.snackName, required this.imageUrl, required this.description});
+  const SnackDetailPage({super.key, required this.snackName, required this.imageUrl, required this.description});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SnackDetailPageState createState() => _SnackDetailPageState();
 }
 

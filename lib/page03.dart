@@ -7,6 +7,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
 }
 
 class Page03 extends StatefulWidget {
-  const Page03({Key? key, required this.title}) : super(key: key);
+  const Page03({super.key, required this.title});
 
   final String title;       
 
@@ -139,8 +141,8 @@ class Page03State extends State<Page03> {
                     SnackBar(content: Text('คุณชอบเมนูนี้!')),
                   );
                 },
-                child: Icon(Icons.thumb_up, color: Colors.white),
                 tooltip: 'Like',
+                child: Icon(Icons.thumb_up, color: Colors.white),
               ),
               SizedBox(width: 20), // ระยะห่างระหว่างปุ่ม
               // ปุ่ม Dislike สีแดง
@@ -152,8 +154,8 @@ class Page03State extends State<Page03> {
                     SnackBar(content: Text('คุณไม่ชอบเมนูนี้!')),
                   );
                 },
-                child: Icon(Icons.thumb_down, color: Colors.white),
                 tooltip: 'Dislike',
+                child: Icon(Icons.thumb_down, color: Colors.white),
               ),
             ],
           ),

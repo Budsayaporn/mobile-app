@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,6 +9,8 @@ void main() {
 }
 
 class FoodAndSnackApp extends StatelessWidget {
+  const FoodAndSnackApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +38,7 @@ class FoodAndSnackApp extends StatelessWidget {
                     'https://www.maggi.co.th/sites/default/files/styles/home_stage_944_531/public/srh_recipes/9f922d8fe6344f4a8b641ebd716be4cd.jpg?h=4f5b30f1&itok=KRUdjO7X', 'ข้าวผัด',
                     context,
                     true,
-                    'ข้าวผัด เป็นอาหารจานเดียวแบบพื้นฐานของเอเชีย เป็นการนำข้าวสวยลงไปผัดคลุกกับซอส หรือน้ำพริก หรือเครื่องปรุงรสต่างๆ เพื่อให้ได้รสชาติ \ส่วนประกอบ ข้าวสวยหุงสุก 1 ถ้วย / ไข่ไก่ 2 ฟอง /ต้นหอม 1 ช้อนโต๊ะ /เกลือ ½ ช้อนชา /พริกไทย 1 ช้อนชา /น้ำมันพืช 3 ช้อนโต๊ะ  ',
+                    'ข้าวผัด เป็นอาหารจานเดียวแบบพื้นฐานของเอเชีย เป็นการนำข้าวสวยลงไปผัดคลุกกับซอส หรือน้ำพริก หรือเครื่องปรุงรสต่างๆ เพื่อให้ได้รสชาติ ส่วนประกอบ ข้าวสวยหุงสุก 1 ถ้วย / ไข่ไก่ 2 ฟอง /ต้นหอม 1 ช้อนโต๊ะ /เกลือ ½ ช้อนชา /พริกไทย 1 ช้อนชา /น้ำมันพืช 3 ช้อนโต๊ะ  ',
                     
                   ),
                   _item(
@@ -117,21 +120,27 @@ class FoodAndSnackApp extends StatelessWidget {
             children: [
               TextButton.icon(
                 onPressed: () {
-                  print("Navigated to Home");
+                  if (kDebugMode) {
+                    print("Navigated to Home");
+                  }
                 },
                 icon: Icon(Icons.home, color: Colors.purple[200]),
                 label: Text('Home', style: TextStyle(color: Colors.purple)),
               ),
               TextButton.icon(
                 onPressed: () {
-                  print("Navigated to Favorites");
+                  if (kDebugMode) {
+                    print("Navigated to Favorites");
+                  }
                 },
                 icon: Icon(Icons.favorite, color: Colors.red[200]),
                 label: Text('Favorites', style: TextStyle(color: Colors.red)),
               ),
               TextButton.icon(
                 onPressed: () {
-                  print("Navigated to Profile");
+                  if (kDebugMode) {
+                    print("Navigated to Profile");
+                  }
                 },
                 icon: Icon(Icons.person, color: Colors.blue[200]),
                 label: Text('Profile', style: TextStyle(color: Colors.blue)),
@@ -143,10 +152,12 @@ class FoodAndSnackApp extends StatelessWidget {
          ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print("ไปหน้าต่อไป");
+          if (kDebugMode) {
+            print("ไปหน้าต่อไป");
+          }
         },
-        child: Icon(Icons.arrow_forward),
         backgroundColor: Colors.green[400],
+        child: Icon(Icons.arrow_forward),
       ),
       );
         
@@ -200,9 +211,10 @@ class FoodDetailPage extends StatefulWidget {
   final String imageUrl;
   final String description;
 
-  FoodDetailPage({required this.foodName, required this.imageUrl, required this.description});
+  const FoodDetailPage({super.key, required this.foodName, required this.imageUrl, required this.description});
 
   @override
+  // ignore: library_private_types_in_public_api
   _FoodDetailPageState createState() => _FoodDetailPageState();
 }
 
@@ -226,7 +238,7 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${widget.foodName}'),
+        title: Text(widget.foodName),
         backgroundColor: Colors.blue[300],
       ),
       body: Padding(
@@ -278,9 +290,10 @@ class SnackDetailPage extends StatefulWidget {
   final String imageUrl;
   final String description;
 
-  SnackDetailPage({required this.snackName, required this.imageUrl, required this.description});
+  const SnackDetailPage({super.key, required this.snackName, required this.imageUrl, required this.description});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SnackDetailPageState createState() => _SnackDetailPageState();
 }
 

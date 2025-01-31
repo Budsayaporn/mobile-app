@@ -14,6 +14,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,6 +42,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MainMenu extends StatelessWidget {
+  const MainMenu({super.key});
+
   @override
   Widget build(BuildContext context) {
     // ข้อมูลหมวดอาหาร
@@ -74,7 +78,7 @@ class MainMenu extends StatelessWidget {
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.deepOrange),
             ),
             SizedBox(height: 10),
-            ...foodList.map((food) => _buildMenuItem(context, food)).toList(),
+            ...foodList.map((food) => _buildMenuItem(context, food)),
 
             SizedBox(height: 30),
 
@@ -84,7 +88,7 @@ class MainMenu extends StatelessWidget {
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.green),
             ),
             SizedBox(height: 10),
-            ...snackList.map((snack) => _buildMenuItem(context, snack)).toList(),
+            ...snackList.map((snack) => _buildMenuItem(context, snack)),
           ],
         ),
       ),
