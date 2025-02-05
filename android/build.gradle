@@ -4,11 +4,11 @@ buildscript {
         mavenCentral()
         // ถ้ามี jcenter() ให้ลบออก หรือเอาไว้ล่างสุด (มักไม่แนะนำให้ใช้แล้ว)
     }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:7.5.1' 
-        // หรือเวอร์ชันอื่นที่ Flutter รองรับ
-        // ถ้าใช้ Kotlin ด้วย ให้ใส่ classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.x.x"
-    }
+    // dependencies {
+    //     classpath 'com.android.tools.build:gradle:7.5.1' 
+    //     // หรือเวอร์ชันอื่นที่ Flutter รองรับ
+    //     // ถ้าใช้ Kotlin ด้วย ให้ใส่ classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.x.x"
+    // }
 }
 
 allprojects {
