@@ -1,20 +1,18 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        // ถ้ามี jcenter() ให้ลบออก หรือเอาไว้ล่างสุด (มักไม่แนะนำให้ใช้แล้ว)
-    }
-    // dependencies {
-    //     classpath 'com.android.tools.build:gradle:7.5.1' 
-    //     // หรือเวอร์ชันอื่นที่ Flutter รองรับ
-    //     // ถ้าใช้ Kotlin ด้วย ให้ใส่ classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.x.x"
-    // }
-}
-
 allprojects {
     repositories {
         google()
         mavenCentral()
-        // ถ้ามี jcenter() ให้ลบหรือเอาไว้ล่างสุด
     }
+}
+
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
 }
