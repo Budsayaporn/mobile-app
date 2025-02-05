@@ -56,7 +56,7 @@ class MainMenu extends StatelessWidget {
     ];
 
     // ข้อมูลหมวดของว่าง
-    final List<Map<String, String>> snackList = [
+     List<Map<String, String>> snackList = [
       {"name": "ขนมครก", "route": "/page07", "image": "images/ขนมครก.jpg", "icon": "🍡"},
       {"name": "ติ่มซัม", "route": "/page8", "image": "images/ติ่มซัม.jpg", "icon": "🥟"},
       {"name": "นักเก็ต", "route": "/page09", "image": "images/นักเก็ต.jpg", "icon": "🍗"},
